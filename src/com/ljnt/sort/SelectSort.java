@@ -13,22 +13,26 @@ public class SelectSort {
         show(arr);
     }
     public static int[] doSelectSort(int[] arr){
-        int temp;
-        boolean flag=false;
+//        boolean flag=false;
         for (int i=0;i<arr.length-1;i++){
+            int min=arr[i];
+            int minindex=i;
             for(int j=i+1;j<arr.length;j++){
-                if (arr[i]>arr[j]){
-                    flag=true;
-                    temp=arr[i];
-                    arr[i]=arr[j];
-                    arr[j]=temp;
+                if (arr[j]<min){
+                    min=arr[j];
+                    minindex=j;
                 }
             }
-            if(!flag){
-                break;
-            }else {
-                flag=false;
+            if (minindex!=i){
+//                flag=true;
+                arr[minindex]=arr[i];
+                arr[i]=min;
             }
+//            if(!flag){
+//                break;
+//            }else {
+//                flag=false;
+//            }
         }
         return arr;
     }
